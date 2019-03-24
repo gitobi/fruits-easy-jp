@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e4242d29-0f1b-4913-bf75-c4ae515f3f44/deploy-status)](https://app.netlify.com/sites/fruits-plant-com-production/deploys)
+
 # fruits-plant.com
 
 # Development
