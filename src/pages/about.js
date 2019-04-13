@@ -9,7 +9,7 @@ export default () => (
       <meta name="description" content="フルーツ工場メディア" />
     </Helmet>
     <div>
-      <h1>Fruits Plant by Gitobi</h1>
+      <h1>Fruits Plantとは</h1>
     </div>
   </Layout>
 )
