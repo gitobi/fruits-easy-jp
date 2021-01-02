@@ -4,6 +4,6 @@ services:
     build: .
     ports:
       - "8000:8000"
-    command: yarn develop
+    command: npm run develop
     volumes:
       - .:/app:cached
