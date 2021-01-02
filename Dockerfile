@@ -1,4 +1,4 @@
-FROM node:12.20.0-alpine
+FROM node:14.15.3-alpine
 
 RUN apk update && \
     apk add git util-linux
