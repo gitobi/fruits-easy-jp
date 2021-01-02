@@ -1,6 +1,6 @@
 {
-  "name": "fruits-factory-media-web",
-  "description": "Fruits factory media project.",
+  "name": "fruit-factory-media-web",
+  "description": "Fruit factory media project.",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
