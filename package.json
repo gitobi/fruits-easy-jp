@@ -1,23 +1,32 @@
 {
   "name": "fruit-factory-media-web",
-  "description": "Fruit factory media project.",
   "version": "0.1.0",
+  "description": "Fruit factory media project.",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
     "develop": "gatsby develop -H 0.0.0.0",
-    "start": "npm run develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "dependencies": {
-    "gatsby": "^2.21.40",
-    "gatsby-cli": "2.12.54",
-    "gatsby-plugin-react-helmet": "^3.0.11",
-    "gatsby-plugin-sass": "^2.0.11",
-    "node-sass": "^4.14.1",
-    "react": "^16.8.2",
-    "react-dom": "^16.8.2",
-    "react-helmet": "^5.2.0",
-    "xstate": "4.10.0"
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "gatsby": "^2.29.3",
+    "gatsby-image": "^2.8.0",
+    "gatsby-plugin-google-analytics": "^2.8.0",
+    "gatsby-plugin-mdx": "^1.7.1",
+    "gatsby-plugin-react-helmet": "^3.7.0",
+    "gatsby-plugin-sass": "3.0.0-next.2",
+    "gatsby-plugin-sharp": "^2.11.2",
+    "gatsby-plugin-sitemap": "^2.9.0",
+    "gatsby-source-filesystem": "^2.8.1",
+    "gatsby-transformer-sharp": "^2.9.0",
+    "node-sass": "^5.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0"
   }
 }
