@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: "Fruit Factory",
     description: "Fruit factory media.",
+    siteUrl: "https://fruit-factory.media",
   },
   plugins: [
     "gatsby-plugin-sass",
