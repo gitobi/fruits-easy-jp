@@ -16,7 +16,6 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-mdx",
-    "gatsby-plugin-netlify-cms",
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",
