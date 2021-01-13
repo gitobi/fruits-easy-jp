@@ -15,7 +15,15 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
-    "gatsby-plugin-mdx",
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        extensions: [".mdx", ".md"],
+        defaultLayouts: {
+          default: require.resolve("./src/components/layout.js"),
+        },
+      },
+    },
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",
