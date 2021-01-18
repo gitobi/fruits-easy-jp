@@ -3,8 +3,8 @@ import { Helmet } from "react-helmet"
 
 export default (props) => (
     <Helmet
-      defaultTitle="Fruits Factory"
-      titleTemplate="%s - Fruits Factory"
+      defaultTitle="Fruit Factory"
+      titleTemplate="%s - Fruit Factory"
     >
       <title>{props.title}</title>
       <meta name="description" content={props.description} />

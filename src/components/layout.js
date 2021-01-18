@@ -10,7 +10,7 @@ export default ({ children }) => (
 
     {/* TODO: Header にする */}
     <Link to="/">ホーム</Link>
-    <Link to="/about/">Fruits Factoryとは</Link>
+    <Link to="/about/">Fruit Factoryとは</Link>
     <Link to="/contact/">コンタクト</Link>
 
     {children}
