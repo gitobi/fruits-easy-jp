@@ -4,7 +4,7 @@ import Header from "../organisms/header"
 import Main from "../organisms/main"
 import Footer from "../organisms/footer"
 
-export default ({ children }) => (
+const OneColumnLayout = ({ children }) => (
   <>
     <Helmet>
       <html lang="ja" />
@@ -15,3 +15,5 @@ export default ({ children }) => (
     <Footer />
   </>
 )
+
+export default OneColumnLayout
