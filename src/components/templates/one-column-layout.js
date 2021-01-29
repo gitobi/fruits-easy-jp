@@ -1,4 +1,5 @@
 import React from "react"
+import "modern-css-reset"
 import { Helmet } from "react-helmet"
 import Header from "../organisms/header"
 import Main from "../organisms/main"

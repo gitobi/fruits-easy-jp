@@ -1,7 +1,7 @@
 import React from "react"
 
-const Main = ({ children }) => (
-  <main>
+const Main = ({ className, children }) => (
+  <main className={className}>
     {children}
   </main>
 )
