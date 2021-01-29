@@ -3,9 +3,7 @@ import { Link } from "gatsby"
 
 const Header = () => (
   <header>
-    <Link to="/">ホーム</Link>
-    <Link to="/about/">Fruit Factoryとは</Link>
-    <Link to="/contact/">コンタクト</Link>
+    <Link to="/">Fruit Factory</Link>
   </header>
 )
 

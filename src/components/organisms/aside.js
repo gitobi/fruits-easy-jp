@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
 
-const Aside = () => (
-  <aside>
+const Aside = ({ className }) => (
+  <aside className={className}>
     <section>
       <h2>初めての根域制限栽培</h2>
       <ul>
