@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: "Fruit Factory",
@@ -22,6 +26,13 @@ module.exports = {
         defaultLayouts: {
           default: require.resolve("./src/components/templates/two-column-layout.js"),
         },
+      },
+    },
+    {
+      resolve: "gatsby-source-shopify",
+      options: {
+        shopName: process.env.SHOPIFY_SHOP_NAME,
+        accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
       },
     },
     "gatsby-transformer-sharp",
