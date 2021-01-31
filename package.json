@@ -23,11 +23,13 @@
     "gatsby-plugin-sharp": "^2.11.2",
     "gatsby-plugin-sitemap": "^2.9.0",
     "gatsby-source-filesystem": "^2.8.1",
+    "gatsby-source-shopify": "^3.9.0",
     "gatsby-transformer-sharp": "^2.9.0",
     "node-sass": "^5.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "shopify-buy": "^2.11.0"
   },
   "devDependencies": {
     "modern-css-reset": "^1.4.0"
