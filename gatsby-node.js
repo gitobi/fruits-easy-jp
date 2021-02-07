@@ -11,10 +11,11 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             title
             images {
+              id
               originalSrc
             }
             shopifyId
-            description
+            descriptionHtml
             availableForSale
             priceRange {
               maxVariantPrice {
