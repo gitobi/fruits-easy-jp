@@ -9,7 +9,7 @@ const ProductsPage = ({ data }) => (
     <ul>
       {data.allShopifyProduct.edges.map(({ node }) => (
         <li key={node.shopifyId}>
-          <img src={node.images[0].originalSrc} alt={node.title} style={{width: '200px'}}/>
+          <img src={node.images[0].originalSrc} alt={node.title} key={node.images[0].id} style={{width: '200px'}}/>
           <h3>
             <Link to={`/products/${node.shopifyId}`}>{node.title}</Link>
           </h3>
@@ -29,6 +29,7 @@ export const query = graphql`
         node {
           title
           images {
+            id
             originalSrc
           }
           shopifyId
