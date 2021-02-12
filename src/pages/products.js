@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import OneColumnLayout from "../components/templates/one-column-layout"
+import ShopifyImage from "../components/atoms/image/shopify-image"
 
 const ProductsPage = ({ data }) => (
   <OneColumnLayout>
@@ -9,7 +10,12 @@ const ProductsPage = ({ data }) => (
     <ul>
       {data.allShopifyProduct.edges.map(({ node }) => (
         <li key={node.shopifyId}>
-          <img src={node.images[0].originalSrc} alt={node.title} key={node.images[0].id} style={{width: '200px'}}/>
+          <ShopifyImage
+            src={node.images[0].originalSrc}
+            width={200}
+            alt={node.title}
+            key={node.images[0].id}
+          />
           <h3>
             <Link to={`/products/${node.shopifyId}`}>{node.title}</Link>
           </h3>
