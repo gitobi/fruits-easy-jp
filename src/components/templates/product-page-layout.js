@@ -1,13 +1,15 @@
 import React from "react"
 
-import OneColumnLayout from "./one-column-layout"
 import ShopifyImage from "../atoms/image/shopify-image"
+import OneColumnLayout from "./one-column-layout"
+import Head from "../head"
 
 const ProductPageLayout = ({ pageContext }) => {
   const { product } = pageContext
 
   return (
     <OneColumnLayout>
+      <Head title={product.title} description={product.description} />
       <h1>{product.title}</h1>
       <ShopifyImage
         src={product.images[0].originalSrc}
