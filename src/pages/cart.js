@@ -9,7 +9,7 @@ const CartPage = ({ data }) => {
   const store = useContext(StoreContext)
 
   const handleCheckout = () => {
-    window.location.replace(store.checkout.webUrl)
+    window.location.href = store.checkout.webUrl
   }
 
   return (
