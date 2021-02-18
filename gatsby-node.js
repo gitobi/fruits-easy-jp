@@ -9,12 +9,12 @@ exports.createPages = async ({ graphql, actions }) => {
       allShopifyProduct(sort: { fields: [title] }) {
         edges {
           node {
+            shopifyId
             title
             images {
               id
               originalSrc
             }
-            shopifyId
             description
             descriptionHtml
             availableForSale
@@ -24,6 +24,24 @@ exports.createPages = async ({ graphql, actions }) => {
               }
               minVariantPrice {
                 amount
+              }
+            }
+            options {
+              shopifyId
+              name
+              values
+            }
+            variants {
+              shopifyId
+              product {
+                title
+              }
+              title
+              price
+              availableForSale
+              selectedOptions {
+                name
+                value
               }
             }
           }
