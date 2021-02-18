@@ -1,7 +1,8 @@
 import React, { useContext } from "react"
 import { Link, graphql } from "gatsby"
 
-import ShopifyImage from "../components/atoms/image/shopify-image"
+import ShopifyImage from "../components/atoms/images/shopify-image"
+import MinPrice from "../components/atoms/prices/min-price"
 import OneColumnLayout from "../components/templates/one-column-layout"
 
 import StoreContext from "../contexts/store-context"
@@ -27,7 +28,7 @@ const ProductsPage = ({ data }) => {
             <h3>
               <Link to={`/products/${node.shopifyId}`}>{node.title}</Link>
             </h3>
-            <p>{Math.floor(node.priceRange.minVariantPrice.amount)}円</p>
+            <MinPrice amount={node.priceRange.minVariantPrice.amount} />
           </li>
         ))}
       </ul>
