@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react"
-import find from 'lodash/find'
 import isEqual from 'lodash/isEqual'
 
 import ShopifyImage from "../atoms/images/shopify-image"
@@ -25,7 +24,7 @@ const ProductPageLayout = ({ pageContext }) => {
       value,
     }
 
-    const selectedVariant = find(variants, ({ selectedOptions }) =>
+    const selectedVariant = variants.find(({ selectedOptions }) =>
       isEqual(currentOptions, selectedOptions)
     )
 
