@@ -5,7 +5,7 @@ const defaultValue = {
     client: {},
     checkout: {},
     checkoutEditable: true,
-  }
+  },
   addVariantToCart: () => {},
 }
 
