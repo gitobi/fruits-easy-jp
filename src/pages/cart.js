@@ -6,7 +6,7 @@ import Head from "../components/head"
 import StoreContext from "../contexts/store-context"
 
 const CartPage = ({ data }) => {
-  const store = useContext(StoreContext)
+  const { store } = useContext(StoreContext)
 
   const handleCheckout = () => {
     window.location.href = store.checkout.webUrl

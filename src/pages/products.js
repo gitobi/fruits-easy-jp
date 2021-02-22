@@ -10,7 +10,7 @@ import StoreContext from "../contexts/store-context"
 import Head from "../components/head"
 
 const ProductsPage = ({ data }) => {
-  const store = useContext(StoreContext)
+  const { store } = useContext(StoreContext)
 
   return (
     <OneColumnLayout>

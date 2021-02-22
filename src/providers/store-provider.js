@@ -12,19 +12,58 @@ const StoreProvider = ({ children }) => {
     }
   )
 
-  // NOTE: initialValue に key を追加する場合は、 StoreContext の defaultValue にも同様に初期値を追加すること。
-  // StoreContextを使うコンポーネントの単体テストで、 defaultValue が使われるため。
-  const initialValue = {
-    client,
-    checkout: {},
+  const lockCheckout = () => {
+    setStore((prevState) => {
+      return { ...prevState, checkoutEditable: false }
+    })
   }
 
-  const [store, setStore] = useState(initialValue)
+  const releaseCheckout = () => {
+    setStore((prevState) => {
+      return { ...prevState, checkoutEditable: true }
+    })
+  }
+
+  // NOTE: initialValue に key を追加する場合は、 StoreContext の defaultValue にも同様に初期値を追加すること。
+  // StoreContextを使うコンポーネントの単体テストで、 defaultValue が使われるため。
+  const initialStoreValue = {
+    client,
+    checkout: {},
+    checkoutEditable: true,
+  }
+
+  const [store, setStore] = useState(initialStoreValue)
+
+  const addVariantToCart = async (variantId, quantity) => {
+    // variantId が null, undefined, 空文字の時はエラー
+    if (!variantId) {
+      throw new Error("商品を選択してください")
+    }
+    // quantity が null, undefined, 0 の時はエラー
+    quantity = parseInt(quantity, 10)
+    if (!quantity) {
+      throw new Error("数量は 1 以上で入力してください")
+    }
+
+    lockCheckout()
+
+    const lineItemsToUpdate = [
+      { variantId, quantity }
+    ]
+
+    await store.client.checkout.addLineItems(
+      store.checkout.id, lineItemsToUpdate
+    ).then((checkout) => {
+      setStore((prevState) => {
+        return { ...prevState, checkout }
+      })
+    }).finally(() => {
+      releaseCheckout()
+    })
+  }
 
   useEffect(() => {
     const initializeCheckout = async () => {
-      console.debug(`store-provider.js initializeCheckout triggered.`)
-
       const localStorageKey = 'shopify_checkout_id'
 
       const setCheckout = (checkout) => {
@@ -65,7 +104,10 @@ const StoreProvider = ({ children }) => {
 
   return (
     <StoreContext.Provider
-      value={store}
+      value={{
+        store,
+        addVariantToCart: addVariantToCart,
+      }}
     >
       {children}
     </StoreContext.Provider>
