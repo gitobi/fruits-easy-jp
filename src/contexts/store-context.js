@@ -1,9 +1,11 @@
 import React from "react"
 
 const defaultValue = {
-  client: {},
-  checkout: {},
-  checkoutEditable: true,
+  store: {
+    client: {},
+    checkout: {},
+    checkoutEditable: true,
+  }
   addVariantToCart: () => {},
 }
 
