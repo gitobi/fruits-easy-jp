@@ -79,15 +79,17 @@ const StoreProvider = ({ children }) => {
 
       const localStorageValue = localStorage.getItem(localStorageKey)
       if (localStorageValue != null) {
-        // 初期化済みの場合は、最新の checkout を取得してローカルストレージと state に保存する
-
-        await store.client.checkout.fetch(
-          localStorageValue
-        ).then(checkout => {
+        // 初期化済みで未決済の場合は、最新の checkout を取得してローカルストレージと state に保存する
+        // 初期化済みで決済済みの場合は、新しく checkout を作成してローカルストレージと state に保存する
+        try {
+          let checkout = await store.client.checkout.fetch(localStorageValue)
+          if (checkout.completedAt != null) {
+            checkout = await store.client.checkout.create()
+          }
           setCheckout(checkout)
-        }).catch(err => {
+        } catch {
           resetCheckout()
-        })
+        }
       } else {
         // 未初期化の場合は、 checkout を作成してローカルストレージと state に保存する
         await store.client.checkout.create(
