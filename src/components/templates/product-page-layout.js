@@ -9,7 +9,7 @@ import StoreContext from "../../contexts/store-context"
 import Head from "../head"
 
 const ProductPageLayout = ({ pageContext }) => {
-  const store = useContext(StoreContext)
+  const { store, addVariantToCart } = useContext(StoreContext)
   const { product } = pageContext
 
   const { options, variants } = product
@@ -29,19 +29,20 @@ const ProductPageLayout = ({ pageContext }) => {
     )
 
     setVariant({ ...selectedVariant })
-    console.debug("Option blured")
   }
 
   const [quantity, setQuantity] = useState(1)
   const handleQuantityChange = ({ target }) => {
     setQuantity(target.value)
-    console.debug("Quantity changed")
   }
 
   const available = true
-  const adding = false
-  const handleAddToCartClick = () => {
-    console.debug("Add to cart clicked")
+  const handleAddToCartClick = async () => {
+    await addVariantToCart(
+      variant.shopifyId, quantity
+    ).catch(err => {
+      window.alert(err.message)
+    })
   }
 
   return (
@@ -96,7 +97,7 @@ const ProductPageLayout = ({ pageContext }) => {
       <Price amount={variant.price} />
       <label
         htmlFor="quantity">
-        Quantity
+        数量
       </label>
       <input
         type="number"
@@ -110,12 +111,11 @@ const ProductPageLayout = ({ pageContext }) => {
 
       <button
         type="submit"
-        disabled={!available || adding}
+        disabled={!available || !store.checkoutEditable}
         onClick={handleAddToCartClick}
       >
         カートに入れる
       </button>
-      {console.debug(JSON.parse(JSON.stringify(store)))}
     </OneColumnLayout>
   )
 }
