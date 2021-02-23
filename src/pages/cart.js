@@ -6,17 +6,16 @@ import Head from "../components/head"
 import StoreContext from "../contexts/store-context"
 
 const CartPage = ({ data }) => {
-  const { store } = useContext(StoreContext)
+  const { proceedToCheckout } = useContext(StoreContext)
 
   const handleCheckout = () => {
-    window.location.href = store.checkout.webUrl
+    proceedToCheckout()
   }
 
   return (
     <OneColumnLayout>
       <Head title="カート" description="カート" />
       <h1>カート</h1>
-      {console.debug(JSON.parse(JSON.stringify(store)))}
       <button onClick={handleCheckout}>レジに進む</button>
     </OneColumnLayout>
   )
