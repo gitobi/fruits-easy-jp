@@ -7,6 +7,7 @@ const defaultValue = {
     checkoutEditable: true,
   },
   addVariantToCart: () => {},
+  proceedToCheckout: () => {},
 }
 
 const StoreContext = React.createContext(defaultValue)

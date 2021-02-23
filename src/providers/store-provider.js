@@ -62,6 +62,10 @@ const StoreProvider = ({ children }) => {
     })
   }
 
+  const proceedToCheckout = () => {
+    window.open(store.checkout.webUrl)
+  }
+
   useEffect(() => {
     const initializeCheckout = async () => {
       const localStorageKey = 'shopify_checkout_id'
@@ -109,6 +113,7 @@ const StoreProvider = ({ children }) => {
       value={{
         store,
         addVariantToCart: addVariantToCart,
+        proceedToCheckout: proceedToCheckout,
       }}
     >
       {children}
