@@ -28,7 +28,10 @@ const StoreProvider = ({ children }) => {
   // StoreContextを使うコンポーネントの単体テストで、 defaultValue が使われるため。
   const initialStoreValue = {
     client,
-    checkout: {},
+    checkout: {
+      lineItems: [],
+      totalPrice: 0,
+    },
     checkoutEditable: true,
   }
 
