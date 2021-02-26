@@ -9,13 +9,16 @@ import Head from "../components/head"
 import StoreContext from "../contexts/store-context"
 
 const CartPage = ({ data }) => {
-  const { store, proceedToCheckout } = useContext(StoreContext)
+  const { store, removeLineItem, proceedToCheckout } = useContext(StoreContext)
+
+  const handleRemoveItem = (lineItemId) => {
+    removeLineItem(lineItemId)
+  }
 
   const handleCheckout = () => {
     proceedToCheckout()
   }
 
-  console.debug(store.checkout)
   return (
     <OneColumnLayout>
       <Head title="カート" description="カート" />
@@ -32,11 +35,12 @@ const CartPage = ({ data }) => {
           <p>{lineItem.variant.title !== 'Default Title' ? lineItem.variant.title : ''}</p>
           <Price amount={lineItem.variant.price} />
           <p>数量 {lineItem.quantity}</p>
+          <button disabled={!store.checkoutEditable} onClick={() => handleRemoveItem(lineItem.id)}>削除</button>
         </div>
       ))}
       <p>小計（税抜き）</p>
       <Price amount={store.checkout.totalPrice} />
-      <button onClick={handleCheckout}>レジに進む</button>
+      <button disabled={!store.checkoutEditable} onClick={handleCheckout}>レジに進む</button>
     </OneColumnLayout>
   )
 }
