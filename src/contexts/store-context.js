@@ -9,6 +9,7 @@ const defaultValue = {
     },
     checkoutEditable: true,
   },
+  currentTotalQuantity: () => {},
   addVariantToCart: () => {},
   updateLineItemQuantity: () => {},
   removeLineItem: () => {},
