@@ -1,12 +1,18 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Link } from "gatsby"
 
-const Header = () => (
-  <header>
-    <Link to="/">Fruit Factory</Link>
-    <Link to="/products/">資材販売</Link>
-    <Link to="/cart/">カート</Link>
-  </header>
-)
+import StoreContext from "../../contexts/store-context"
+
+const Header = () => {
+  const { currentTotalQuantity } = useContext(StoreContext)
+
+  return (
+    <header>
+      <Link to="/">Fruit Factory</Link>
+      <Link to="/products/">資材販売</Link>
+      <Link to="/cart/">カート <span>{currentTotalQuantity()}</span></Link>
+    </header>
+  )
+}
 
 export default Header

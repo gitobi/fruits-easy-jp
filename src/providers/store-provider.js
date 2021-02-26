@@ -37,6 +37,12 @@ const StoreProvider = ({ children }) => {
 
   const [store, setStore] = useState(initialStoreValue)
 
+  const currentTotalQuantity = () => {
+    const reducer = (accumulator, lineItem) => accumulator + lineItem.quantity
+
+    return store.checkout.lineItems.reduce(reducer, 0)
+  }
+
   const addVariantToCart = async (variantId, quantity) => {
     // variantId が null, undefined, 空文字の時はエラー
     if (!variantId) {
@@ -164,6 +170,7 @@ const StoreProvider = ({ children }) => {
     <StoreContext.Provider
       value={{
         store,
+        currentTotalQuantity: currentTotalQuantity,
         addVariantToCart: addVariantToCart,
         updateLineItemQuantity: updateLineItemQuantity,
         removeLineItem: removeLineItem,
