@@ -65,6 +65,20 @@ const StoreProvider = ({ children }) => {
     })
   }
 
+  const removeLineItem = async (lineItemId) => {
+    lockCheckout()
+
+    await store.client.checkout.removeLineItems(
+      store.checkout.id, [lineItemId]
+    ).then((checkout) => {
+      setStore((prevState) => {
+        return { ...prevState, checkout }
+      })
+    }).finally(() => {
+      releaseCheckout()
+    })
+  }
+
   const proceedToCheckout = () => {
     window.open(store.checkout.webUrl)
   }
@@ -116,6 +130,7 @@ const StoreProvider = ({ children }) => {
       value={{
         store,
         addVariantToCart: addVariantToCart,
+        removeLineItem: removeLineItem,
         proceedToCheckout: proceedToCheckout,
       }}
     >
