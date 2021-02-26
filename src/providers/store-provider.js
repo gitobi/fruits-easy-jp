@@ -50,11 +50,39 @@ const StoreProvider = ({ children }) => {
 
     lockCheckout()
 
-    const lineItemsToUpdate = [
+    const lineItemsToAdd = [
       { variantId, quantity }
     ]
 
     await store.client.checkout.addLineItems(
+      store.checkout.id, lineItemsToAdd
+    ).then((checkout) => {
+      setStore((prevState) => {
+        return { ...prevState, checkout }
+      })
+    }).finally(() => {
+      releaseCheckout()
+    })
+  }
+
+  const updateLineItemQuantity = async (lineItemId, quantity) => {
+    // lineItemId が null, undefined, 空文字の時はエラー
+    if (!lineItemId) {
+      throw new Error("数量を変更する商品を選択してください")
+    }
+    // quantity が null, undefined, 0 の時はエラー
+    quantity = parseInt(quantity, 10)
+    if (!quantity) {
+      throw new Error("数量は 1 以上で入力してください")
+    }
+
+    lockCheckout()
+
+    const lineItemsToUpdate = [
+      { id: lineItemId, quantity: quantity }
+    ]
+
+    await store.client.checkout.updateLineItems(
       store.checkout.id, lineItemsToUpdate
     ).then((checkout) => {
       setStore((prevState) => {
@@ -66,10 +94,17 @@ const StoreProvider = ({ children }) => {
   }
 
   const removeLineItem = async (lineItemId) => {
+    // lineItemId が null, undefined, 空文字の時はエラー
+    if (!lineItemId) {
+      throw new Error("削除する商品を選択してください")
+    }
+
     lockCheckout()
 
+    const lineItemsToDelete = [lineItemId]
+
     await store.client.checkout.removeLineItems(
-      store.checkout.id, [lineItemId]
+      store.checkout.id, lineItemsToDelete
     ).then((checkout) => {
       setStore((prevState) => {
         return { ...prevState, checkout }
@@ -130,6 +165,7 @@ const StoreProvider = ({ children }) => {
       value={{
         store,
         addVariantToCart: addVariantToCart,
+        updateLineItemQuantity: updateLineItemQuantity,
         removeLineItem: removeLineItem,
         proceedToCheckout: proceedToCheckout,
       }}

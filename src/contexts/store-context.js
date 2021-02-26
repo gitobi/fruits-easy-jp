@@ -10,6 +10,7 @@ const defaultValue = {
     checkoutEditable: true,
   },
   addVariantToCart: () => {},
+  updateLineItemQuantity: () => {},
   removeLineItem: () => {},
   proceedToCheckout: () => {},
 }

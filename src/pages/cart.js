@@ -9,10 +9,27 @@ import Head from "../components/head"
 import StoreContext from "../contexts/store-context"
 
 const CartPage = ({ data }) => {
-  const { store, removeLineItem, proceedToCheckout } = useContext(StoreContext)
+  const {
+    store,
+    updateLineItemQuantity,
+    removeLineItem,
+    proceedToCheckout,
+  } = useContext(StoreContext)
 
-  const handleRemoveItem = (lineItemId) => {
-    removeLineItem(lineItemId)
+  const handleQuantityChange = async ({ target }, lineItemId) => {
+    await updateLineItemQuantity(
+      lineItemId, target.value
+    ).catch(err => {
+      window.alert(err.message)
+    })
+  }
+
+  const handleRemoveItem = async (lineItemId) => {
+    await removeLineItem(
+      lineItemId
+    ).catch(err => {
+      window.alert(err.message)
+    })
   }
 
   const handleCheckout = () => {
@@ -34,7 +51,19 @@ const CartPage = ({ data }) => {
           />
           <p>{lineItem.variant.title !== 'Default Title' ? lineItem.variant.title : ''}</p>
           <Price amount={lineItem.variant.price} />
-          <p>数量 {lineItem.quantity}</p>
+          <label
+            htmlFor="quantity">
+            数量
+          </label>
+          <input
+            type="number"
+            id="quantity"
+            name="quantity"
+            min="1"
+            step="1"
+            onChange={(event) => handleQuantityChange(event, lineItem.id)}
+            value={lineItem.quantity}
+          />
           <button disabled={!store.checkoutEditable} onClick={() => handleRemoveItem(lineItem.id)}>削除</button>
         </div>
       ))}
