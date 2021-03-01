@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { Link } from "gatsby"
 
-import StoreContext from "../../contexts/store-context"
+import { StoreContext } from "@gitobi/gitobi-shopify-context"
 
 const Header = () => {
   const { currentTotalQuantity } = useContext(StoreContext)

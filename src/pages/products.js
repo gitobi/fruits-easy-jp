@@ -5,7 +5,7 @@ import ShopifyImage from "../components/atoms/images/shopify-image"
 import MinPrice from "../components/atoms/prices/min-price"
 import OneColumnLayout from "../components/templates/one-column-layout"
 
-import StoreContext from "../contexts/store-context"
+import { StoreContext } from "@gitobi/gitobi-shopify-context"
 
 import Head from "../components/head"
 
