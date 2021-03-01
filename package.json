@@ -12,6 +12,7 @@
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "dependencies": {
+    "@gitobi/gitobi-shopify-context": "^1.2.0",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "gatsby": "^2.31.1",
@@ -29,8 +30,7 @@
     "node-sass": "^5.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-helmet": "^6.1.0",
-    "shopify-buy": "^2.11.0"
+    "react-helmet": "^6.1.0"
   },
   "devDependencies": {
     "modern-css-reset": "^1.4.0"

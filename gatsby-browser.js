@@ -1,5 +1,5 @@
 import React from "react"
-import StoreProvider from "./src/providers/store-provider"
+import { StoreProvider } from "@gitobi/gitobi-shopify-context"
 
 import "./src/styles/main.scss"
 

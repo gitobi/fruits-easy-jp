@@ -6,7 +6,7 @@ import Price from "../components/atoms/prices/price"
 import OneColumnLayout from "../components/templates/one-column-layout"
 import Head from "../components/head"
 
-import StoreContext from "../contexts/store-context"
+import { StoreContext } from "@gitobi/gitobi-shopify-context"
 
 const CartPage = ({ data }) => {
   const {

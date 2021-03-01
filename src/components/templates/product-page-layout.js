@@ -5,7 +5,7 @@ import ShopifyImage from "../atoms/images/shopify-image"
 import Price from "../atoms/prices/price"
 import OneColumnLayout from "./one-column-layout"
 
-import StoreContext from "../../contexts/store-context"
+import { StoreContext } from "@gitobi/gitobi-shopify-context"
 import Head from "../head"
 
 const ProductPageLayout = ({ pageContext }) => {
