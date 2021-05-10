@@ -9,15 +9,15 @@ module.exports = {
     siteUrl: "https://fruit-factory.media",
   },
   plugins: [
-    "gatsby-plugin-sass",
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
         trackingId: "G-PM7XFL8NNZ",
       },
     },
-    "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sass",
+    "gatsby-plugin-sharp",
     "gatsby-plugin-sitemap",
     {
       resolve: "gatsby-plugin-mdx",

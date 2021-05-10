@@ -1,7 +1,7 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 
-export default (props) => (
+const Head = (props) => (
     <Helmet
       defaultTitle="Fruit Factory"
       titleTemplate="%s - Fruit Factory"
@@ -10,3 +10,5 @@ export default (props) => (
       <meta name="description" content={props.description} />
     </Helmet>
 )
+
+export default Head;
