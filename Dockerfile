@@ -10,6 +10,7 @@ RUN apk update && \
     automake \
     libtool \
     pkgconf \
-    nasm
+    nasm \
+    python3
 
 WORKDIR /app
