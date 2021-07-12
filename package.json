@@ -23,7 +23,7 @@
     "gatsby-plugin-sass": "^4.9.0",
     "gatsby-plugin-sharp": "^3.9.0",
     "gatsby-plugin-sitemap": "^4.5.0",
-    "gatsby-source-filesystem": "^3.4.0",
+    "gatsby-source-filesystem": "^3.9.0",
     "gatsby-source-shopify": "^4.4.0",
     "gatsby-transformer-sharp": "^3.9.0",
     "lodash": "^4.17.21",
