@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react"
-import isEqual from 'lodash/isEqual'
+import isEqual from "lodash/isEqual"
 
 import ShopifyImage from "../atoms/images/shopify-image"
 import Price from "../atoms/prices/price"
@@ -38,9 +38,7 @@ const ProductPageLayout = ({ pageContext }) => {
 
   const available = true
   const handleAddToCartClick = async () => {
-    await addVariantToCart(
-      variant.shopifyId, quantity
-    ).catch(err => {
+    await addVariantToCart(variant.shopifyId, quantity).catch(err => {
       window.alert(err.message)
     })
   }
@@ -55,7 +53,7 @@ const ProductPageLayout = ({ pageContext }) => {
         alt={product.title}
         key={product.images[0].id}
       />
-      {product.images.slice(1).map((image) => {
+      {product.images.slice(1).map(image => {
         return (
           <ShopifyImage
             src={image.originalSrc}
@@ -65,40 +63,33 @@ const ProductPageLayout = ({ pageContext }) => {
           />
         )
       })}
-      <div dangerouslySetInnerHTML={{__html: product.descriptionHtml}} />
+      <div dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
 
-      {options.filter(option => option.name !== 'Title').map(({ shopifyId, name, values }, index) => {
-        return (
-          <React.Fragment key={shopifyId}>
-            <label
-              htmlFor={name}>
-              {name}
-            </label>
-            <select
-              name={name}
-              key={`${shopifyId}-${name}`}
-              onBlur={event => handleOptionBlur(index, event)}
-            >
-              {values.map((value) => {
-                return (
-                  <option
-                    value={value}
-                    key={`${shopifyId}-${value}`}
-                  >
-                    {value}
-                  </option>
-                )
-              })}
-            </select>
-          </React.Fragment>
-        )
-      })}
+      {options
+        .filter(option => option.name !== "Title")
+        .map(({ shopifyId, name, values }, index) => {
+          return (
+            <React.Fragment key={shopifyId}>
+              <label htmlFor={name}>{name}</label>
+              <select
+                name={name}
+                key={`${shopifyId}-${name}`}
+                onBlur={event => handleOptionBlur(index, event)}
+              >
+                {values.map(value => {
+                  return (
+                    <option value={value} key={`${shopifyId}-${value}`}>
+                      {value}
+                    </option>
+                  )
+                })}
+              </select>
+            </React.Fragment>
+          )
+        })}
 
       <Price amount={variant.price} />
-      <label
-        htmlFor="quantity">
-        数量
-      </label>
+      <label htmlFor="quantity">数量</label>
       <input
         type="number"
         id="quantity"

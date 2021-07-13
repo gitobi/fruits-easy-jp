@@ -25,7 +25,9 @@ module.exports = {
       options: {
         extensions: [".mdx", ".md"],
         defaultLayouts: {
-          default: require.resolve("./src/components/templates/two-column-layout.js"),
+          default: require.resolve(
+            "./src/components/templates/two-column-layout.js"
+          ),
         },
       },
     },
@@ -53,5 +55,5 @@ module.exports = {
       },
       __key: "pages",
     },
-  ]
+  ],
 }
