@@ -6,7 +6,11 @@ import Aside from "../organisms/aside"
 import Footer from "../organisms/footer"
 
 import "modern-css-reset"
-import { mainAsideContainer, main, aside } from "./two-column-layout.module.scss"
+import {
+  mainAsideContainer,
+  main,
+  aside,
+} from "./two-column-layout.module.scss"
 
 const TwoColumnLayout = ({ children }) => (
   <>

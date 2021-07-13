@@ -14,7 +14,10 @@ const ProductsPage = ({ data }) => {
 
   return (
     <OneColumnLayout>
-      <Head title="資材販売" description="根域制限栽培で必要になる専用資材を販売しています。家庭菜園やお試し用に一つからはもちろん、農家さん向けに大量購入にも対応しておりますので、お気軽にお問い合わせください。" />
+      <Head
+        title="資材販売"
+        description="根域制限栽培で必要になる専用資材を販売しています。家庭菜園やお試し用に一つからはもちろん、農家さん向けに大量購入にも対応しておりますので、お気軽にお問い合わせください。"
+      />
       <h1>資材販売</h1>
       <ul>
         {data.allShopifyProduct.edges.map(({ node }) => (

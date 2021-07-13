@@ -4,7 +4,5 @@ import { StoreProvider } from "@gitobi/gitobi-shopify-context"
 import "./src/styles/main.scss"
 
 export const wrapRootElement = ({ element }) => (
-  <StoreProvider>
-    {element}
-  </StoreProvider>
+  <StoreProvider>{element}</StoreProvider>
 )
