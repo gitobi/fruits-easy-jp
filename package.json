@@ -4,12 +4,13 @@
   "description": "Fruit factory media project.",
   "license": "MIT",
   "scripts": {
-    "develop": "gatsby develop -H 0.0.0.0",
-    "start": "gatsby develop",
     "build": "gatsby build",
+    "develop": "gatsby develop -H 0.0.0.0",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\" && exit 1"
   },
   "dependencies": {
     "@gitobi/gitobi-shopify-context": "^1.2.0",
@@ -33,6 +34,7 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
+    "prettier": "2.3.2",
     "modern-css-reset": "^1.4.0"
   }
 }
