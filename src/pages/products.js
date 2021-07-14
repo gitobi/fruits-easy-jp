@@ -44,7 +44,7 @@ export default ProductsPage
 
 export const query = graphql`
   {
-    allShopifyProduct(sort: { fields: [title] }) {
+    allShopifyProduct(filter: { productType: { eq: "根域制限栽培資材" } }, sort: { fields: [title] }) {
       edges {
         node {
           title

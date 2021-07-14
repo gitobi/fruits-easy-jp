@@ -6,7 +6,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Query for all products in Shopify
   const shopifyProductsResult = await graphql(`
     query {
-      allShopifyProduct(sort: { fields: [title] }) {
+      allShopifyProduct(filter: { productType: { eq: "根域制限栽培資材" } }, sort: { fields: [title] }) {
         edges {
           node {
             description
