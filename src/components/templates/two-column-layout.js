@@ -1,11 +1,14 @@
 import React from "react"
+
 import { Helmet } from "react-helmet"
 import Header from "../organisms/header"
 import Main from "../organisms/main"
 import Aside from "../organisms/aside"
 import Footer from "../organisms/footer"
 
-import "modern-css-reset"
+import "sanitize.css"
+import "sanitize.css/forms.css"
+import "sanitize.css/assets.css"
 import {
   mainAsideContainer,
   main,
