@@ -38,7 +38,7 @@ const ProductPageLayout = ({ pageContext }) => {
 
   const available = true
   const handleAddToCartClick = async () => {
-    await addVariantToCart(variant.shopifyId, quantity).catch(err => {
+    await addVariantToCart(variant.storefrontId, quantity).catch(err => {
       window.alert(err.message)
     })
   }
@@ -67,18 +67,18 @@ const ProductPageLayout = ({ pageContext }) => {
 
       {options
         .filter(option => option.name !== "Title")
-        .map(({ shopifyId, name, values }, index) => {
+        .map(({ name, values }, index) => {
           return (
-            <React.Fragment key={shopifyId}>
+            <React.Fragment key={`${name}-${index}`}>
               <label htmlFor={name}>{name}</label>
               <select
                 name={name}
-                key={`${shopifyId}-${name}`}
+                key={`${name}-${index}-select`}
                 onBlur={event => handleOptionBlur(index, event)}
               >
                 {values.map(value => {
                   return (
-                    <option value={value} key={`${shopifyId}-${value}`}>
+                    <option value={value} key={`${name}-${index}-${value}`}>
                       {value}
                     </option>
                   )

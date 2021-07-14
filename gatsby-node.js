@@ -9,40 +9,39 @@ exports.createPages = async ({ graphql, actions }) => {
       allShopifyProduct(sort: { fields: [title] }) {
         edges {
           node {
-            shopifyId
-            title
+            description
+            descriptionHtml
             images {
               id
               originalSrc
             }
-            description
-            descriptionHtml
-            availableForSale
-            priceRange {
-              maxVariantPrice {
-                amount
-              }
-              minVariantPrice {
-                amount
-              }
-            }
             options {
-              shopifyId
               name
               values
             }
+            priceRangeV2 {
+              maxVariantPrice {
+                amount
+                currencyCode
+              }
+              minVariantPrice {
+                amount
+                currencyCode
+              }
+            }
+            storefrontId
+            title
             variants {
-              shopifyId
+              price
               product {
                 title
               }
-              title
-              price
-              availableForSale
               selectedOptions {
                 name
                 value
               }
+              storefrontId
+              title
             }
           }
         }
@@ -53,7 +52,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Iterate over all products and create a new page using a template
   shopifyProductsResult.data.allShopifyProduct.edges.forEach(({ node }) => {
     createPage({
-      path: `/products/${node.shopifyId}`,
+      path: `/products/${node.storefrontId}`,
       component: path.resolve(
         `./src/components/templates/product-page-layout.js`
       ),
