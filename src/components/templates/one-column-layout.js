@@ -1,9 +1,13 @@
 import React from "react"
-import "modern-css-reset"
+
 import { Helmet } from "react-helmet"
 import Header from "../organisms/header"
 import Main from "../organisms/main"
 import Footer from "../organisms/footer"
+
+import "sanitize.css"
+import "sanitize.css/forms.css"
+import "sanitize.css/assets.css"
 
 const OneColumnLayout = ({ children }) => (
   <>
