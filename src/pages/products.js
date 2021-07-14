@@ -21,7 +21,7 @@ const ProductsPage = ({ data }) => {
       <h1>資材販売</h1>
       <ul>
         {data.allShopifyProduct.edges.map(({ node }) => (
-          <li key={node.shopifyId}>
+          <li key={node.storefrontId}>
             <ShopifyImage
               src={node.images[0].originalSrc}
               width={200}
@@ -29,9 +29,9 @@ const ProductsPage = ({ data }) => {
               key={node.images[0].id}
             />
             <h3>
-              <Link to={`/products/${node.shopifyId}`}>{node.title}</Link>
+              <Link to={`/products/${node.storefrontId}`}>{node.title}</Link>
             </h3>
-            <MinPrice amount={node.priceRange.minVariantPrice.amount} />
+            <MinPrice amount={node.priceRangeV2.minVariantPrice.amount} />
           </li>
         ))}
       </ul>
@@ -52,8 +52,8 @@ export const query = graphql`
             id
             originalSrc
           }
-          shopifyId
-          priceRange {
+          storefrontId
+          priceRangeV2 {
             minVariantPrice {
               amount
             }
