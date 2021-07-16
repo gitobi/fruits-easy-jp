@@ -9,6 +9,7 @@ module.exports = {
     siteUrl: "https://fruit-factory.media",
   },
   plugins: [
+    `gatsby-plugin-fontawesome-css`,
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
@@ -16,6 +17,18 @@ module.exports = {
       },
     },
     `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Fruit Factory`,
+        short_name: `Fruit Factory`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#ffffff`,
+        display: `standalone`,
+        icon: `src/images/icon.png`,
+      },
+    },
     "gatsby-plugin-react-helmet",
      {
       resolve: `gatsby-plugin-sass`,

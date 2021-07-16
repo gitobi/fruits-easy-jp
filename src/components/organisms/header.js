@@ -3,15 +3,29 @@ import { Link } from "gatsby"
 
 import { StoreContext } from "@gitobi/gitobi-shopify-context"
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faHome,
+  faShoppingCart,
+  faStore,
+} from "@fortawesome/free-solid-svg-icons"
+
 const Header = () => {
   const { currentTotalQuantity } = useContext(StoreContext)
 
   return (
     <header>
-      <Link to="/">Fruit Factory</Link>
-      <Link to="/products/">資材販売</Link>
+      <Link to="/">
+        Fruit Factory
+      </Link>
+      <Link to="/">
+        <FontAwesomeIcon icon={faHome} /> ホーム
+      </Link>
+      <Link to="/products/">
+        <FontAwesomeIcon icon={faStore} /> オンラインストア
+      </Link>
       <Link to="/cart/">
-        カート <span>{currentTotalQuantity()}</span>
+        <FontAwesomeIcon icon={faShoppingCart} /> カート <span>{currentTotalQuantity()}</span>
       </Link>
     </header>
   )
