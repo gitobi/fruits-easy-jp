@@ -1,14 +1,11 @@
 import React from "react"
 
-import { Helmet } from "react-helmet"
+import Aside from "../organisms/aside"
+import BaseLayout from "./base-layout"
+import Footer from "../organisms/footer"
 import Header from "../organisms/header"
 import Main from "../organisms/main"
-import Aside from "../organisms/aside"
-import Footer from "../organisms/footer"
 
-import "sanitize.css"
-import "sanitize.css/forms.css"
-import "sanitize.css/assets.css"
 import {
   mainAsideContainer,
   main,
@@ -16,18 +13,14 @@ import {
 } from "./two-column-layout.module.scss"
 
 const TwoColumnLayout = ({ children }) => (
-  <>
-    <Helmet>
-      <html lang="ja" />
-    </Helmet>
-
+  <BaseLayout>
     <Header />
     <div className={mainAsideContainer}>
       <Main className={main} children={children} />
       <Aside className={aside} />
     </div>
     <Footer />
-  </>
+  </BaseLayout>
 )
 
 export default TwoColumnLayout

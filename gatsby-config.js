@@ -17,7 +17,15 @@ module.exports = {
     },
     `gatsby-plugin-image`,
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sass",
+     {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        additionalData: `
+          @import "${__dirname}/src/styles/colors";
+          @import "${__dirname}/src/styles/variables";
+        `,
+      },
+    },
     "gatsby-plugin-sharp",
     "gatsby-plugin-sitemap",
     {
