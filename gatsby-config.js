@@ -4,9 +4,9 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: "Fruit Factory",
     description: "Fruit factory media.",
     siteUrl: "https://fruit-factory.media",
+    title: "Fruit Factory",
   },
   plugins: [
     `gatsby-plugin-fontawesome-css`,
@@ -29,6 +29,17 @@ module.exports = {
         icon: `src/images/icon.png`,
       },
     },
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        extensions: [".mdx", ".md"],
+        defaultLayouts: {
+          default: require.resolve(
+            "./src/components/templates/two-column-layout.js"
+          ),
+        },
+      },
+    },
     "gatsby-plugin-react-helmet",
      {
       resolve: `gatsby-plugin-sass`,
@@ -42,14 +53,17 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-plugin-sitemap",
     {
-      resolve: "gatsby-plugin-mdx",
+      resolve: `gatsby-source-filesystem`,
       options: {
-        extensions: [".mdx", ".md"],
-        defaultLayouts: {
-          default: require.resolve(
-            "./src/components/templates/two-column-layout.js"
-          ),
-        },
+        name: `images`,
+        path: `${__dirname}/src/images/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages/`,
       },
     },
     {
@@ -60,21 +74,5 @@ module.exports = {
       },
     },
     "gatsby-transformer-sharp",
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "images",
-        path: "./src/images/",
-      },
-      __key: "images",
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "pages",
-        path: "./src/pages/",
-      },
-      __key: "pages",
-    },
   ],
 }
