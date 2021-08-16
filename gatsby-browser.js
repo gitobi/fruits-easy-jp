@@ -2,5 +2,9 @@ import React from "react"
 import { StoreProvider } from "@gitobi/gitobi-shopify-context"
 
 export const wrapRootElement = ({ element }) => (
-  <StoreProvider>{element}</StoreProvider>
+  <StoreProvider
+    localStorageKey='shopify_checkout_id_for_fruit_factory_media'
+  >
+    {element}
+  </StoreProvider>
 )
