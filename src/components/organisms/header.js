@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <header>
       <Link to="/">
-        Fruit Factory
+        かんたん果樹
       </Link>
       <Link to="/">
         <FontAwesomeIcon icon={faHome} /> ホーム

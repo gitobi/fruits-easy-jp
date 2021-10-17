@@ -12,7 +12,7 @@ import { footer } from "./footer.module.scss"
 const Footer = () => (
   <footer className={footer}>
     <Link to="/about/">
-      <FontAwesomeIcon icon={faInfoCircle} /> Fruit Factoryとは
+      <FontAwesomeIcon icon={faInfoCircle} /> かんたん果樹とは
     </Link>
     <Link to="/contact/">
       <FontAwesomeIcon icon={faEnvelope} /> コンタクト

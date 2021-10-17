@@ -1,6 +1,6 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/42a058ab-6ac2-4158-a188-84f0bf49a4e5/deploy-status)](https://app.netlify.com/sites/fruit-factory-media-production/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/42a058ab-6ac2-4158-a188-84f0bf49a4e5/deploy-status)](https://app.netlify.com/sites/fruits-easy-jp-production/deploys)
 
-# fruit-factory.media
+# fruits-easy.jp
 
 # Development
 

@@ -1,7 +1,7 @@
 {
-  "name": "fruit-factory-media-web",
+  "name": "fruits-easy-jp",
   "version": "0.1.0",
-  "description": "Fruit factory media project.",
+  "description": "Fruits easy jp project.",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
