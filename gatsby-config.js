@@ -11,9 +11,11 @@ module.exports = {
   plugins: [
     `gatsby-plugin-fontawesome-css`,
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: `G-6CGBM2DWXZ`,
+        trackingIds: [
+          `G-6CGBM2DWXZ`,
+        ],
       },
     },
     `gatsby-plugin-image`,
